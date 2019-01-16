@@ -12,6 +12,27 @@ Similar Problem:
 3. Does the given string have any repeated character?
 */
 
-function maxChar(str) {}
+function maxChar(str) {
+    const charMax = {};
+    let max = 0;
+    let maxChar = '';
+    for (let char of str) {
+        if(!charMax[char]){
+            charMax[char] = 1;
+        }
+        else {
+            charMax[char]++;
+        }
+    }
+
+    for (let char in charMax) {
+        if (charMax[char]>max) {
+            max = charMax[char];
+            maxChar = char;
+        }
+    }
+
+    return maxChar;
+}
 
 module.exports = maxChar;
